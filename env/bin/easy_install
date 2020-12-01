@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/jinlee/Desktop/2020 Fall/CPSC 471 project/implementation/Car-Rental-App/env/bin/python3" "$0" "$@"
-' '''
+#!/Users/Twinkle/Documents/GitHub/Car-Rental-App/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

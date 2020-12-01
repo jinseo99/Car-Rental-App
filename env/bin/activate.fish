@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/jinlee/Desktop/2020 Fall/CPSC 471 project/implementation/Car-Rental-App/env"
+set -gx VIRTUAL_ENV "/Users/Twinkle/Documents/GitHub/Car-Rental-App/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
