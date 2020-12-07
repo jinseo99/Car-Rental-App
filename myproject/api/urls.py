@@ -1,7 +1,34 @@
-from django.urls import path
-from api import views
-
+from django.urls import path,include
+from . import views
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('new/', views.Form.getForm, name='form'),
+    path('customers/', views.CustomerList.as_view()),
+    path('customers/<int:pk>', views.CustomerDetail.as_view()),
+    path('employees/', views.EmployeeList.as_view()),
+    path('employees/<int:pk>', views.EmployeeDetail.as_view()),
+    path('delivery_employees/', views.Delivery_EmployeeList.as_view()),
+    path('delivery_employees/<int:pk>', views.Delivery_EmployeeDetail.as_view()),
+    path('managers/', views.ManagerList.as_view()),
+    path('managers/<int:pk>', views.ManagerDetail.as_view()),
+    path('vehicle_types/', views.Vehicle_TypeList.as_view()),
+    path('vehicle_types/<int:pk>', views.Vehicle_TypeDetail.as_view()),
+    path('vehicles/', views.VehicleList.as_view()),
+    path('vehicles/<int:pk>', views.VehicleDetail.as_view()),
+    path('transport_phases/', views.Transport_PhaseList.as_view()),
+    path('transport_phases/<int:pk>', views.Transport_PhaseDetail.as_view()),
+    path('rental_companys/', views.Rental_CompanyList.as_view()),
+    path('rental_companys/<int:pk>', views.Rental_CompanyDetail.as_view()),
+    path('payments/', views.PaymentList.as_view()),
+    path('payments/<int:pk>', views.PaymentDetail.as_view()),
+    path('services/', views.ServiceList.as_view()),
+    path('services/<int:pk>', views.ServiceDetail.as_view()),
+    path('assigneds/', views.AssignedList.as_view()),
+    path('assigneds/<int:pk>', views.AssignedDetail.as_view()),
+    path('drop_offs/', views.Drop_OffList.as_view()),
+    path('drop_offs/<int:pk>', views.Drop_OffDetail.as_view()),
+    path('managess/', views.ManagesList.as_view()),
+    path('managess/<int:pk>', views.ManagesDetail.as_view()),
+    path('pick_ups/', views.Pick_UpList.as_view()),
+    path('pick_ups/<int:pk>', views.Pick_UpDetail.as_view()),
+    path('reservations/', views.ReservationList.as_view()),
+    path('reservations/<int:pk>', views.ReservationDetail.as_view()),
 ]
