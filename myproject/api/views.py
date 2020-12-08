@@ -17,9 +17,7 @@ class CustomerList (APIView):
             return Response (serializer.data, status=status.HTTP_201_CREATED)
         return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class CustomerDetail (APIView):
-
     def get(self, request, pk, format=None):
         customer = Customer.objects.get (pk=pk)
         serializer = CustomerSerializer(customer)
@@ -55,7 +53,6 @@ class EmployeeList (APIView):
 
 
 class EmployeeDetail (APIView):
-
     def get(self, request, pk, format=None):
         employee = Employee.objects.get (pk=pk)
         serializer = EmployeeSerializer(employee)

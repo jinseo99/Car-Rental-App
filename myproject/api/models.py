@@ -15,7 +15,7 @@ class Customer(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.customer_id)
+        return str(self.customer_name)
 
 class Employee(models.Model):
     employee_id = models.CharField (primary_key=True, max_length=50)
@@ -27,7 +27,7 @@ class Employee(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.employee_id)
+        return str(self.name)
 
 class Delivery_Employee(models.Model):
     e_id = models.OneToOneField(Employee, primary_key=True, on_delete=models.CASCADE)
@@ -50,7 +50,7 @@ class Manager(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.office_no)
+        return str(self.e_id)
 
 class Vehicle_Type(models.Model):
     vin = models.CharField (primary_key=True, max_length=50)
@@ -63,7 +63,7 @@ class Vehicle_Type(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.vin)
+        return str(self.make) + ' ' + str(self.model_year)
 
 class Rental_Company(models.Model):
     company_name = models.CharField (primary_key=True,max_length=50)
@@ -131,7 +131,7 @@ class Service(models.Model):
         app_label='api'
 
     def __str__(self):
-        return self.date, self.workcode, self.license_plate
+        return str(self.workcode)
 
 class Assigned(models.Model):
     transport_phase = models.ForeignKey(Transport_Phase, on_delete=models.CASCADE)
@@ -152,7 +152,7 @@ class Drop_Off(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.customer.customer_id)
+        return str(self.customer.customer_id) + ' ' + str(self.drop_location)
 
 class Manages(models.Model):
     manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
@@ -162,7 +162,7 @@ class Manages(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.m_id)
+        return str(self.manager.e_id) + ' ' + str(self.service.workcode)
 
 class Pick_Up(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
@@ -174,7 +174,7 @@ class Pick_Up(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.customer.customer_id)
+        return str(self.customer.customer_id) + ' ' + str(self.pick_location)
 
 class Reservation(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
@@ -185,4 +185,4 @@ class Reservation(models.Model):
         app_label='api'
 
     def __str__(self):
-        return str(self.customer_id)
+        return str(self.customer_id) + ' ' +  str(self.reservation_date)
